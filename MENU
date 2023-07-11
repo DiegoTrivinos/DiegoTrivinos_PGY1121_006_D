@@ -1,0 +1,49 @@
+#menu
+
+import random
+import numpy as np
+import funciones as fa
+import os
+
+rut=""
+departamentos_disponibles = fa.generar_departamentos()
+os.system("cls")
+while True:
+    print(" ************************************ ")
+    print(" ********** Casa Feliz” ************* ")
+    print(" ************************************ ")
+    print("[1]. Comprar departamento.")
+    print("[2]. Mostrar departamentos disponibles.")
+    print("[3]. Ver listado de compradores.")
+    print("[4]. Mostrar ganancias totales.")
+    print("[5]. Salir.")
+    opcion = input("Elija una opción: ")
+
+    if opcion == "1":
+        os.system("cls")
+        fa.mostrar_departamentos_disponibles(departamentos_disponibles)
+        rut = fa.pregunto_rut(rut)
+        fa.comprar_departamento(departamentos_disponibles)
+        os.system("pause")
+        os.system("cls")
+    elif opcion == "2":
+        os.system("cls")
+        fa.mostrar_departamentos_disponibles(departamentos_disponibles)
+        os.system("pause")
+        os.system("cls")
+
+    elif opcion == "3":
+        os.system("cls")
+
+    elif opcion == "4":
+        os.system("cls")
+        fa.mostrar_total_ganar(departamentos_disponibles)
+
+    elif opcion == "5":
+        os.system("cls")
+        print("¡Hasta luego! Diego triviños ")
+        print("11/07/2023")
+
+        break
+    else:
+        print("Opción inválida. Por favor, elija una opción válida.")
