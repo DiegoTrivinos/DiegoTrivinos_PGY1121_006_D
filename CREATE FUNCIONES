@@ -1,0 +1,65 @@
+#FUNCIONES
+
+import numpy as np
+import os
+import random
+def generar_departamentos():
+    departamentos = []
+    for i in range(10):
+        cliente = []
+        for y in range(4):
+            cliente.append(random.randint(0, 1))
+        departamentos.append(cliente)
+    return departamentos
+
+def mostrar_departamentos_disponibles(departamentos):
+    for i, cliente in enumerate(departamentos):
+        print(f"Piso {i+1}: {cliente}")
+
+def pregunto_rut(rut):
+    while True:
+        rut=0
+        try:
+            rut = int(input("Ingrese su rut de nomas de 9 digitos y posivito, ademas de que no tenga ni puntos ni guines:  "))
+            if rut >= 0 and rut <= 999999999:
+                print("RUT INGRESADO CORRECTAMENTE")
+                return rut
+            else:
+                print("Error: El rut ingresado tiene mas de 9 digitos o es negativo ")
+        except ValueError:
+            print("Error: Debe ingresar un rut valido")
+def buscarDisponible(cliente, departamento):
+    for i in range(10):
+        for j in range(4):
+            if (departamento==cliente[i,j]):
+                return True
+    return False 
+def comprar_habitacion(cliente, departamento):
+    for i in range(10):
+        for y in range(4):
+            if (cliente[i,y]==departamento):
+                cliente[i,y]=0        
+                if i==0:
+                    monto=3800
+                elif i==1:
+                    monto=3000
+                elif i==2:
+                    monto=2800
+                elif i==3:
+                    monto=3500
+    return monto
+
+def comprar_departamento(pepe):
+    cliente = int(input("Ingrese el número de piso: "))
+    departamento = int(input("Ingrese el número de habitacion (1-4): "))
+    if cliente < 1 or cliente >= 10 or departamento < 1 or departamento >= 4:
+        print("Error: Número de cliente o departamento incorrecto.")
+        return
+    
+def mostrar_total_ganar(departamentos):
+    for i, departamentos in enumerate(departamentos):
+        print(f"Piso {i+1}:")
+        print(f"Total, edificios comprados {departamentos}")
+        print(f"total ganancia $")
+        print(f"Total a pagar: $")
+        print()
